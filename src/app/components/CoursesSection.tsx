@@ -46,7 +46,7 @@ export default function CoursesSection() {
           {courses.map((course) => (
             <div
               key={course.title}
-              className="group flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md dark:bg-card-dark dark:border-border-dark"
             >
               {/* Icon */}
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light text-primary">
