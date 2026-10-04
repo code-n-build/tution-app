@@ -1,78 +1,102 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Students", href: "/students" },
-  { name: "Teachers", href: "/teachers" },
-  { name: "Classes", href: "/classes" },
-  { name: "Attendance", href: "/attendance" },
+  { name: "Home", href: "#home" },
+  { name: "Courses", href: "#courses" },
+  { name: "About", href: "#about" },
+  { name: "Faculty", href: "#faculty" },
+  { name: "Results", href: "#results" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="border-b bg-white">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
+    <nav
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "border-b border-border bg-surface/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-surface/80"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-gray-900">
-          Tuition<span className="text-blue-600">App</span>
+        <Link
+          href="/"
+          className="text-lg font-bold tracking-tight text-text-main sm:text-xl"
+        >
+          <span className="text-primary">Tuition</span> Center
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-gray-600 transition hover:text-blue-600"
+              className="text-sm font-medium text-text-secondary transition-colors hover:text-primary"
             >
               {item.name}
             </Link>
           ))}
+        </div>
 
+        {/* CTA Button */}
+        <div className="hidden items-center md:flex">
           <Link
-            href="/login"
-            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-700"
+            href="#contact"
+            className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
           >
-            Login
+            Enroll Now
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="rounded-md p-2 text-gray-600 hover:bg-gray-100 md:hidden"
+          className="rounded-md p-2 text-text-secondary transition-colors hover:bg-primary-light hover:text-primary md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
-          {menuOpen ? "✕" : "☰"}
+          <span className="text-lg">{menuOpen ? "✕" : "☰"}</span>
         </button>
       </div>
 
       {/* Mobile Navigation */}
       {menuOpen && (
-        <div className="border-t px-4 pb-4 md:hidden">
-          <div className="flex flex-col gap-2 pt-3">
+        <div className="border-t border-border bg-surface/95 backdrop-blur md:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 sm:px-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-text-main transition-colors hover:bg-primary-light hover:text-primary"
               >
                 {item.name}
               </Link>
             ))}
 
             <Link
-              href="/login"
+              href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 rounded-lg bg-blue-600 px-4 py-2 text-center text-sm font-medium text-white"
+              className="mt-2 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary/90"
             >
-              Login
+              Enroll Now
             </Link>
           </div>
         </div>
