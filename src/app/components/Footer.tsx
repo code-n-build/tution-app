@@ -18,7 +18,7 @@ const programs = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-brand">
+    <footer className="bg-brand">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12 sm:py-16">
@@ -86,7 +86,7 @@ export default function Footer() {
                   Phone: +977-1-XXXXXXX
                 </li>
                 <li className="text-sm text-brand-muted">
-                  Email: info@tuitioncenter.edu.np
+                  Email: manojhajam3@gmail.com
                 </li>
                 <li className="text-sm text-brand-muted">
                   Follow us on social media

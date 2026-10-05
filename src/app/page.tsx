@@ -7,6 +7,7 @@ import ResultsSection from "./components/ResultsSection";
 import FacultySection from "./components/FacultySection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import CTASection from "./components/CTASection";
+import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <FacultySection />
       <TestimonialsSection />
       <CTASection />
+      <ContactSection />
       <Footer />
     </main>
   );
