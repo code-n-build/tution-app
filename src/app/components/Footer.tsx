@@ -18,17 +18,17 @@ const programs = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-primary">
+    <footer id="contact" className="bg-brand">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-12 sm:py-16">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {/* Column 1 - Logo & Description */}
             <div className="sm:col-span-2 lg:col-span-1">
-              <Link href="/" className="text-xl font-bold text-white">
+              <Link href="/" className="text-xl font-bold text-brand-fg">
                 Tuition <span className="text-accent">Center</span>
               </Link>
-              <p className="mt-4 max-w-sm text-sm text-primary-light">
+              <p className="mt-4 max-w-sm text-sm text-brand-muted">
                 Expert tuition center providing personalized education and
                 academic excellence for students from SEE to higher secondary
                 levels.
@@ -37,7 +37,7 @@ export default function Footer() {
 
             {/* Column 2 - Quick Links */}
             <div>
-              <h3 className="text-sm font-semibold tracking-wider text-white uppercase">
+              <h3 className="text-sm font-semibold tracking-wider text-brand-fg uppercase">
                 Quick Links
               </h3>
               <ul className="mt-4 space-y-3">
@@ -45,7 +45,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-primary-light transition-colors hover:text-white"
+                      className="text-sm text-brand-muted transition-colors hover:text-brand-fg"
                     >
                       {link.name}
                     </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
 
             {/* Column 3 - Programs */}
             <div>
-              <h3 className="text-sm font-semibold tracking-wider text-white uppercase">
+              <h3 className="text-sm font-semibold tracking-wider text-brand-fg uppercase">
                 Programs
               </h3>
               <ul className="mt-4 space-y-3">
@@ -64,7 +64,7 @@ export default function Footer() {
                   <li key={program.name}>
                     <Link
                       href={program.href}
-                      className="text-sm text-primary-light transition-colors hover:text-white"
+                      className="text-sm text-brand-muted transition-colors hover:text-brand-fg"
                     >
                       {program.name}
                     </Link>
@@ -75,20 +75,20 @@ export default function Footer() {
 
             {/* Column 4 - Contact */}
             <div>
-              <h3 className="text-sm font-semibold tracking-wider text-white uppercase">
+              <h3 className="text-sm font-semibold tracking-wider text-brand-fg uppercase">
                 Contact
               </h3>
               <ul className="mt-4 space-y-3">
-                <li className="text-sm text-primary-light">
+                <li className="text-sm text-brand-muted">
                   Address: Putalisadak, Kathmandu, Nepal
                 </li>
-                <li className="text-sm text-primary-light">
+                <li className="text-sm text-brand-muted">
                   Phone: +977-1-XXXXXXX
                 </li>
-                <li className="text-sm text-primary-light">
+                <li className="text-sm text-brand-muted">
                   Email: info@tuitioncenter.edu.np
                 </li>
-                <li className="text-sm text-primary-light">
+                <li className="text-sm text-brand-muted">
                   Follow us on social media
                 </li>
               </ul>
@@ -98,7 +98,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 py-6">
-          <p className="text-sm text-center text-primary-light">
+          <p className="text-sm text-center text-brand-muted">
             © 2026 Tuition Center. All rights reserved.
           </p>
         </div>

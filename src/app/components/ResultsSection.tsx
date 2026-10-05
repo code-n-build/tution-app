@@ -69,7 +69,7 @@ export default function ResultsSection() {
             >
               {/* Grade Badge */}
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-sm font-semibold text-white">
+                <span className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-contrast">
                   {item.grade}
                 </span>
                 <span className="text-sm font-medium text-text-secondary">

@@ -103,7 +103,7 @@ export default function WhyChooseUs() {
             <div className="mt-8">
               <Link
                 href="#contact"
-                className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none sm:text-base"
+                className="inline-flex items-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-contrast shadow-sm transition-all hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none sm:text-base"
               >
                 Enroll Now
               </Link>

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import ThemeToggle from "../components/ThemeToggle";
+import { useTheme } from "../components/ThemeProvider";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -16,6 +18,7 @@ const navItems = [
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,10 +59,11 @@ export default function Navbar() {
         </div>
 
         {/* CTA Button */}
-        <div className="hidden items-center md:flex">
+        <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           <Link
             href="#contact"
-            className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
+            className="inline-flex items-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-contrast shadow-sm transition-colors hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none"
           >
             Enroll Now
           </Link>
@@ -94,10 +98,17 @@ export default function Navbar() {
             <Link
               href="#contact"
               onClick={() => setMenuOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-primary/90"
+              className="mt-2 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-contrast shadow-sm transition-colors hover:bg-primary/90"
             >
               Enroll Now
             </Link>
+
+            <div className="mt-4 flex items-center justify-between rounded-lg border border-border px-3 py-2">
+              <span className="text-sm font-medium text-text-main">
+                {theme === "dark" ? "Dark mode" : "Light mode"}
+              </span>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       )}
